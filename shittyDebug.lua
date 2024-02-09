@@ -22,8 +22,17 @@
 if not fs.exists("Modules") then
     shell.run("mkdir Modules")
 end
+if not fs.exists("basaltDebugModules") then
+    shell.run("mkdir basaltDebugModules")
+end
 if not fs.exists("Modules/basalt.lua") then
     shell.run("wget run https://basalt.madefor.cc/install.lua packed Modules/basalt.lua master")
+end
+if not fs.exists("basaltDebugModules/utils.lua") then
+    shell.run("wget https://github.com/jebjordan/basaltDebugFrame/raw/main/basaltDebugModules/utils.lua basaltDebugModules/utils.lua")
+end
+if not fs.exists("basaltDebugModules/tHex.lua") then
+    shell.run("wget https://github.com/jebjordan/basaltDebugFrame/raw/main/basaltDebugModules/tHex.lua basaltDebugModules/tHex.lua")
 end
 
 local tracker = peripheral and peripheral.find("playerDetector") or nil;

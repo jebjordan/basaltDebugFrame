@@ -5,11 +5,15 @@
 > [!NOTE]
 > Original code sourced from [@Pyroxenium/Basalt](https://github.com/Pyroxenium/Basalt/blob/master/Basalt/plugins/debug.lua)
 
+### usage / install
+```
+wget https://github.com/jebjordan/basaltDebugFrame/raw/main/shittyDebug.lua basaltDebug.lua
+```
 
-### usage [^1]
+### example [^1]
  ```lua https://raw.githubusercontent.com/jebjordan/basaltDebugFrame/main/t3.lua
 local basalt = require('Modules/basalt')
-local debugMenu = require('shittyDebug')
+local debugMenu = require('basaltDebug')--'shittyDebug')
     :setBasalt(basalt)
 
 local mainFrame = basalt.createFrame("mainFrame")
