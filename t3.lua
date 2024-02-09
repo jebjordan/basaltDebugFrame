@@ -1,5 +1,9 @@
-local _ = require('shittyDebug')
-local debugMenu, basalt = _[1], _[2]
+
+local basalt = require('Modules/basalt')
+local debugMenu = require('shittyDebug')
+    :setBasalt(basalt)
+
+
 --sDebug, basalt, mainFrame = x[1], x[2], x[3]
 --error''
 --sDebug.debug('hello')

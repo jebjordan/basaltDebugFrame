@@ -5,7 +5,10 @@
         basalt.lua, tHex.lua, and utils.lua taken directly from the basalt repo and slightly modified.
 
     Usage:
+        local basalt = require('Modules/basalt')
+        local debugMenu = require('Modules/basaltDebug') -- (shittyDebug.lua renamed to basaltDebug.lua)
         local mainFrame = basalt.createFrame()
+        debugMenu:setBasalt(basalt)
         local debugFrame = debugMenu:createDebugMenu(mainFrame, {'debugMenuFrame', 'debugMenuTextbox', 'debugMenuCheckbox'})
         debugFrame.debug('test: '..i)
 
@@ -25,7 +28,7 @@ end
 
 local tracker = peripheral and peripheral.find("playerDetector") or nil;
 local pretty = require("cc.pretty")
-local basalt = require("Modules/basalt")
+local basalt-- = require("Modules/basalt")
 local utils = require("basaltDebugModules/utils")
 
 local debugMenu = {
@@ -41,7 +44,14 @@ local print = function(...)
     basalt.log(pretty.pretty({...}), 'printing')
 end
 
+function debugMenu:setBasalt(basaltVar)
+    assert(basaltVar, "basalt Variable not Provided")
+    basalt = basaltVar;
+    return self
+end
+
 function debugMenu:createDebugMenu(basaltFrame, designations)
+    assert(basalt, "The `basalt` variable has not yet been set")
     assert(basaltFrame and type(basaltFrame)=="table", ("Type of provided `basaltFrame` not of correct type. Provided type: %s"):format(type(basaltFrame) or "nil"))
     if designations then
         assert(type(designations)=="table", "Please provide a designation table properly. Example: {'debugMenuFrame', 'debugMenuTextbox', 'debugMenuCheckbox'}")
@@ -190,4 +200,4 @@ function debugMenu:createDebugMenu(basaltFrame, designations)
 end
 
 
-return {debugMenu, basalt}
+return debugMenu
