@@ -5,7 +5,7 @@
 > [!NOTE]
 > Original code sourced from [@Pyroxenium/Basalt](https://github.com/Pyroxenium/Basalt/blob/master/Basalt/plugins/debug.lua)
 
-### usage / install
+### download
 ```
 wget https://github.com/jebjordan/basaltDebugFrame/raw/main/shittyDebug.lua basaltDebug.lua
 ```
