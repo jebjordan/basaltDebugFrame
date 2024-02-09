@@ -86,7 +86,6 @@ function debugMenu:createDebugMenu(basaltFrame, designations)
                 ---> below is the bottom of the screen with an offset of 1
                 debugMenuFrame:animatePosition(2, h-debugMenuFrame:getHeight(), 0.5)
                 
-                
                 self:setParent(debugMenuFrame)
                     :setPosition("{parent.w - 7}", 1)
                     :setText("Close")
@@ -95,7 +94,6 @@ function debugMenu:createDebugMenu(basaltFrame, designations)
                     :setForeground(colors.white)
 
             else
-
                 debugMenuFrame:animatePosition(-w, h/2-debugMenuFrame:getHeight()/2)
                 self:setParent(basaltFrame)
                     :setSize(1, 1)
