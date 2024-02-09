@@ -1,6 +1,6 @@
 
 local basalt = require('Modules/basalt')
-local debugMenu = require('shittyDebug')
+local debugMenu = require('basaltDebug') --'shittyDebug')
     :setBasalt(basalt)
 
 
