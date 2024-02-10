@@ -35,8 +35,6 @@ if not fs.exists("basaltDebugModules/tHex.lua") then
     shell.run("wget https://github.com/jebjordan/basaltDebugFrame/raw/main/basaltDebugModules/tHex.lua basaltDebugModules/tHex.lua")
 end
 
-local tracker = peripheral and peripheral.find("playerDetector") or nil;
-local pretty = require("cc.pretty")
 local basalt-- = require("Modules/basalt")
 local utils = require("basaltDebugModules/utils")
 
@@ -44,14 +42,6 @@ local debugMenu = {
     counter=0
 }
 
---local mainFrame = basalt.createFrame("mf22222")
---    :setBackground(colours.black, "-", colours.grey)
-
---basalt:setActiveFrame(mainFrame)
-
-local print = function(...)
-    basalt.log(pretty.pretty({...}), 'printing')
-end
 
 function debugMenu:setBasalt(basaltVar)
     assert(basaltVar, "basalt Variable not Provided")
