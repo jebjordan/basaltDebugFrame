@@ -1,8 +1,9 @@
 
 --[[
     Author: jebjordan
-        Some snippets and such from the official basalt debug module code. Adapted to fix it and make it work as a module or whatever
-        basalt.lua, tHex.lua, and utils.lua taken directly from the basalt repo and slightly modified.
+        (most of the code is from the original source, just kinda tinkered with it a bit)
+        Snippets and such from the official basalt debug module code. Adapted to fix it and make it work as a module or whatever
+        basalt.lua, tHex.lua, and utils.lua taken directly from the basalt repo.
 
     Usage:
         local basalt = require('Modules/basalt')
