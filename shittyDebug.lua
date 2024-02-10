@@ -189,7 +189,6 @@ function debugMenu:createDebugMenu(basaltFrame, designations)
         local hideTimer = basaltFrame:addTimer()
             :setTime(3)
             :onCall(function(...) debugLabel:hide() end)
-                print(hideTimer)
         hideTimer:start()
 
 
