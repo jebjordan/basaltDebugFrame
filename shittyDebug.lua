@@ -39,16 +39,23 @@ local basalt-- = require("Modules/basalt")
 local utils = require("basaltDebugModules/utils")
 
 local debugMenu = {
-    counter=0
+    --counter=0
 }
 
 
+---function to set the basalt variable so that menus can be made.
+---@return table
+---@type fun(self: table, basaltVar: table): table
 function debugMenu:setBasalt(basaltVar)
     assert(basaltVar, "basalt Variable not Provided")
     basalt = basaltVar;
     return self
 end
 
+---function to create the debug menu.
+---returns a table with all of the parts of the debug menu, so that the calling function can modify them if so desired.
+---@return table
+---@type fun(self: table, basaltFrame: table, designations: table?): table
 function debugMenu:createDebugMenu(basaltFrame, designations)
     assert(basalt, "The `basalt` variable has not yet been set")
     assert(basaltFrame and type(basaltFrame)=="table", ("Type of provided `basaltFrame` not of correct type. Provided type: %s"):format(type(basaltFrame) or "nil"))
@@ -149,7 +156,7 @@ function debugMenu:createDebugMenu(basaltFrame, designations)
                 debugMenuFrame:show()
                 --debugMenuFrame:animatePosition(w/2-debugMenuFrame:getWidth()/2, h/2-debugMenuFrame:getHeight()/2, 0.5)
                 --debugMenuFrame:animatePosition(2, h-debugMenuFrame:getHeight(), 0.5)
-                debugMenuCheckbox:setValue(true)
+                debugMenuCheckbox:setValue(true) -- rather than moving the position in here, you can just change the value and thus it'll be changed back in the checkbox code. Also makes the checkbox match the menu state.
             end)
         :hide()
 
@@ -164,9 +171,11 @@ function debugMenu:createDebugMenu(basaltFrame, designations)
     }
     thisMenu.createdDebugMenu = createdDebugMenu
 
-    if not designations then debugMenu.counter = debugMenu.counter + 1; end;
+    --if not designations then debugMenu.counter = debugMenu.counter + 1; end;
 
-
+    ---function to add debug text to the debug menu. It also shows the most recent text and allows clicking on said text to open the menu.
+    ---@return nil
+    ---@type fun(...: unknown): nil
     function thisMenu.debug(...)
         local args = { ... }
         
